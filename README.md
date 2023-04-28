@@ -1,11 +1,16 @@
 # PdZynth
 ### Simple monophonic substractive synthesizer using Pure Data.
 
-## Patch explanation
+## Summary
 The Pd patch is a monophonic subtractive synthesizer with three oscillators of selectable waveforms and wave folder, a mixer, a resonant low pass filter and two envelope generators (one for the LPF and another for the VCA).
 
 ![Synth GUI](./Figures/Zynth_GUI.png)
 
+## Usage
+To run the patch simply download the `Zynth.pd` file and run it with any version of [Pure Data](https://puredata.info/). To ensure full compatibility you can run it using [Purr Data](https://www.purrdata.net/) or if you are using some other Pd version you may have to install some externals.
+The synth can be played using the computer keyboard or the patch can be easily modified to work with an external MIDI keyboard.
+
+## Patch explanation
 The whole structure of the synthesizer is showed in the next screenshot:
 
 <p align="center">
@@ -24,7 +29,7 @@ For clarity and tidiness, I split everything into different sub-patches so the s
   <img src="./Figures/MIDI_handler.jpg">
 </p>
 
-2. A vibrato is then applied by adding to the MIDI note number a low frequency oscillator (LFO) times the slider amount slider value (LFOAm) as the modulator for each of the oscillators. The LFO input is then multiply by 12 in the vibrato sub-patch to make the max amplitude of the vibrato a full octave. Finally, the adapted and modulated MIDI note number values are converted to Hertz.
+2. A vibrato is then applied by adding to the MIDI note number a low frequency oscillator (LFO) times the slider amount slider value (`LFOAm`) as the modulator for each of the oscillators. The LFO input is then multiply by 12 in the vibrato sub-patch to make the max amplitude of the vibrato a full octave. Finally, the adapted and modulated MIDI note number values are converted to Hertz.
 
 <p align="center">
   <img src="./Figures/LFO_subpatch.jpg">
@@ -77,7 +82,3 @@ All the waveforms are introduced into the `multiplex~` object that allows the us
 <p align="center">
   <img src="./Figures/output_subpatch.jpg">
 </p>
-
-## Usage
-To run the patch simply download the `Zynth.pd` file and run it with any version of [Pure Data](https://puredata.info/). To ensure full compatibility you can run it using [Purr Data](https://www.purrdata.net/) or if you are using some other Pd version you may have to install some externals.
-The synth can be played using the computer keyboard or the patch can be easily modified to work with an external MIDI keyboard.
